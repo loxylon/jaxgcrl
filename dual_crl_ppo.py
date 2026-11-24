@@ -658,6 +658,8 @@ def make_train(config):
                     bc_policy_loss,
                 ),
             ) = ppo_loss_info
+            jax.debug.print("ppo loss info: {x}", x=ppo_loss_info)
+
             # CRL change: log categorical critic loss and scores in place of
             # LEO's Bellman error and Q values.
             metrics = {
@@ -692,6 +694,8 @@ def make_train(config):
                 ).sum() / jnp.maximum(traj_batch.done_ep.sum(), 1)
                 metrics["goals/goals_seen"] = goals_seen.sum()
                 metrics["goals/goals_seen_ratio"] = goals_seen.sum() / num_goals
+
+                jax.debug.print("metrics: {x}", x=metrics)
 
                 def callback(metric, update_step):
                     log(metric, update_step, config)
@@ -758,8 +762,8 @@ def run_dual_crl_ppo(config):
 
     if config["USE_WANDB"]:
         wandb.init(
+            entity=None,
             project=config["WANDB_PROJECT"],
-            entity=config["WANDB_ENTITY"],
             config=config,
             name=config["ENV_NAME"]
             + "-"
