@@ -1,7 +1,7 @@
 import jax
 import jax.numpy as jnp
 
-from envs.gridworld.constants import DIRECTIONS
+from src.envs.gridworld.constants import DIRECTIONS
 
 
 def gridworld_step_lava(rng, env_state, action, env_params, static_env_params):

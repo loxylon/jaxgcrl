@@ -1,7 +1,7 @@
 import jax
 import jax.numpy as jnp
 
-from envs.gridworld.gridworld_state import EnvState
+from src.envs.gridworld.gridworld_state import EnvState
 
 
 def generate_world(rng, env_params, static_env_params):

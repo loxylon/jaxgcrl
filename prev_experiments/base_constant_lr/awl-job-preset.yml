@@ -1,0 +1,20 @@
+image: cr.ai.cloud.ru/477ddfc4-5508-4a33-9c59-a26332cb91ea/nethack-lapo:sf-20261003
+instance_type: a100plus.1gpu.80vG.12C.244G
+job_name: rsh-crl-craftax-contant-lr
+region: SR006
+rsync_exclude:
+- .git/
+- notebooks/
+- wandb/
+- .gitignore
+- LICENSE
+- CRL_CHANGES.md
+- PROJECT_CODE_GUIDE.md
+- DUAL_CRL_PPO_PARAMETERS.md
+- METRICS.md
+- tests
+- prev_experiments
+- run_results
+shm_size_class: large
+time_limit: 10080
+workspace: common

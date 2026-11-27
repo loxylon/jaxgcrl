@@ -5,7 +5,7 @@ import numpy as np
 from flax.linen.initializers import constant, orthogonal
 from typing import Sequence
 
-from models.batch_renorm import BatchRenorm
+from src.models.batch_renorm import BatchRenorm
 
 
 class CRLNetworkConvSymbolicCraftax(nn.Module):

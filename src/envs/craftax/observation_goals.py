@@ -5,7 +5,7 @@ import jax
 import jax.numpy as jnp
 
 from craftax.craftax_classic.constants import BlockType
-from envs.craftax.craftax_goals import (
+from src.envs.craftax.craftax_goals import (
     CRAFTAX_CLASSIC_OBS_SHAPE,
     CRAFTAX_OBS_SHAPE,
     goal_achieved,

@@ -5,9 +5,9 @@ from craftax.environment_base.environment_bases import EnvironmentAutoReset
 from jax import lax
 from typing import Tuple, Optional
 
-from envs.gridworld.game_logic import gridworld_step
-from envs.gridworld.gridworld_state import StaticEnvParams, EnvParams, EnvState
-from envs.gridworld.world_gen import generate_world
+from src.envs.gridworld.game_logic import gridworld_step
+from src.envs.gridworld.gridworld_state import StaticEnvParams, EnvParams, EnvState
+from src.envs.gridworld.world_gen import generate_world
 
 
 class GridworldEnv(EnvironmentAutoReset):

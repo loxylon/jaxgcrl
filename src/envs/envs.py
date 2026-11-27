@@ -2,8 +2,8 @@ import jax.random
 from functools import partial
 from craftax.craftax_env import make_craftax_env_from_name
 
-from envs.gridworld.gridworld_env import GridworldEnv
-from wrappers import CraftaxOneHotDictWrapper
+from src.envs.gridworld.gridworld_env import GridworldEnv
+from src.wrappers import CraftaxOneHotDictWrapper
 
 
 def create_env(config):
@@ -17,7 +17,7 @@ def create_env(config):
 
     elif config["ENV_NAME"] == "Gridworld-v1":
         gridworld_size = config["GRIDWORLD_MAP_SIZE"]
-        from envs.gridworld.gridworld_state import generate_static_env_params
+        from src.envs.gridworld.gridworld_state import generate_static_env_params
 
         static_env_params = generate_static_env_params(
             jax.random.PRNGKey(config["GRIDWORLD_MAP_RNG_SEED"]),
@@ -39,7 +39,7 @@ def create_goal_set_fns(env_name, goal_set="semantic"):
     if goal_set == "observation" and "Craftax" not in env_name:
         raise ValueError("Observation-level goals are available for Craftax only")
     if "Craftax" in env_name and goal_set == "observation":
-        from envs.craftax.observation_goals import (
+        from src.envs.craftax.observation_goals import (
             goal_achieved,
             goal_indexes_to_goals,
             goal_to_goal_index,
@@ -62,7 +62,7 @@ def create_goal_set_fns(env_name, goal_set="semantic"):
         )
 
     if "Craftax" in env_name:
-        from envs.craftax.craftax_goals import (
+        from src.envs.craftax.craftax_goals import (
             goal_achieved,
             goal_indexes_to_goals,
             goal_to_goal_index,
@@ -86,7 +86,7 @@ def create_goal_set_fns(env_name, goal_set="semantic"):
         )
 
     elif env_name == "Gridworld-v1":
-        from envs.gridworld.gridworld_goals import (
+        from src.envs.gridworld.gridworld_goals import (
             goal_achieved,
             goal_indexes_to_goals,
             goal_to_goal_index,
