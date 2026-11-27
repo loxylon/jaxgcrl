@@ -1,9 +1,0 @@
-__pycache__/
-*.py[cod]
-.venv/
-.awl-job-preset.yml
-awl_run.sh
-PROJECT_CODE_GUIDE.md
-DUAL_CRL_PPO_PARAMETERS.md
-METRICS.md
-docs/
